@@ -1,0 +1,19 @@
+version: 1.0
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm install 16
+        - nvm use 16
+        - npm install
+        - npm cache clean --force
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
